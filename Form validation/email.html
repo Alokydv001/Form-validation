@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>email form validation</title>
+<link rel="stylesheet" href="me.css">
+
+</head>
+<body>
+    <div class="container">
+    <form onsubmit="sendEmail();  reset(); return false">
+<h3>Get in touch</h3>
+<input type="text" id="name" placeholder="your name" required>
+<input type="email" id="email" placeholder="Email id" required>
+<input type="text" id="phone" placeholder="phone no." required>
+<input type="email" id="email" placeholder="Email" required>
+<input type="text" id="comment" placeholder="comment." required>
+
+<textarea id ="message" rows="5" placeholder="how can we help you"></textarea>
+
+<button type="submit">send</button> 
+ 
+
+
+
+    </form>
+    </div> 
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+    Host : "smtp.Elasticmail.com",
+    Username : "alokraaz1001@gmail.com",
+    Password : "20b444a2-b3af-4eb8-bae7-911f6097521c",
+    To : 'alokraaz1001@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "New Contact Form Enquiry",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+        }
+    </script>
+</body>
+</html>
